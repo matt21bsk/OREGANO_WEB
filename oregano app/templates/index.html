@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr"> 
+<head> 
+	<meta charset="UTF-8">
+	<title>Projet OREGANO</title> 
+	<link rel="icon" href="https://gitub.u-bordeaux.fr/erias/oregano/-/raw/master/OREGANO_Applications/oregano_app/data/img/logoFullOregano.png" type="image/png">
+	
+	
+</head> 
+
+<body style="margin: 0%;"> 
+	<div class="header" style="background-color: rgb(172, 233, 241) ; display: flex; align-items: center;margin-left: 0%;margin-right: 0%;">
+		<img src="https://gitub.u-bordeaux.fr/erias/oregano/-/raw/master/OREGANO_Applications/oregano_app/data/img/logoFullOregano.png" alt="logoFullOregano" style="height: 70px">
+		<h1 style="font-size: larger; margin-left: 10px;">PROJET OREGANO </h1> 
+	
+	</div>
+	<div class="body" style="background-color: darkturquoise; text-align: center;">
+		<h1 style="margin: 0%;">Evaluation de prédictions</h1>
+	</div>
+	
+	<form method = "POST" enctype="multipart/form-data" action = "/" style="margin-left: 10px;"> 
+		<p style="color:black;">Ajouter un fichier </p>
+		<input type="file" name="file" id ="fichier" accept=".tsv" value="Importer fichier">
+		<input type = "submit" value="Valider"> 
+	</form>
+
+	
+
+	<div class="body" style="background-color: darkturquoise; text-align: center;">
+		<h1>Lancement de prédictions</h1>
+	</div>
+	<form name = "choix_predictions" method = "get" enctype="multipart/form-data" style="margin-left: 10px;">
+		<label for="type_de_prediction">Que voulez-vous prédire ? </label>
+		<select name="prediction" id="type_de_prediction">
+			<option value="None" selected hidden disabled>--Veuillez sélectionner--</option>
+			<option value="sujets">sujets</option>
+			<option value="objets">objets</option>
+			<option value="relations">relations</option>
+			<option value="prédictions complètes">prédictions complètes</option>
+		</select>
+		<input type="submit" value="confirmer">
+	</form>
+
+	<footer style="position: absolute; bottom: 0%; ">
+		<p style="text-align: center; background-color: rgb(172, 233, 241);">Copyright © 2024 Léodoric AHOUANSE</p>
+	</footer>
+
+	<script>
+		function changer_action() {	
+		let form_prediction = document.getElementsByName("choix_predictions")[0];
+		let selection_prediction = document.getElementById("type_de_prediction");
+		let selectedelement = selection_prediction.selectedIndex;
+		
+		if (selectedelement == 1){
+			form_prediction.action = "/predictionsujets";
+		}
+		else if (selectedelement == 2) {
+			form_prediction.action = "/predictionobjets";
+		}
+		else if (selectedelement == 3){
+			form_prediction.action = "/predictionrelations";
+		}
+		else if (selectedelement == 4) {
+			form_prediction.action = "/predictioncomplete";
+		} 
+	                             }
+        document.getElementById("type_de_prediction").addEventListener("change", changer_action);
+	</script>
+
+
+</body> 
+</html>

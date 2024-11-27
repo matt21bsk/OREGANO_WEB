@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>predictions d'objets</title>
+</head>
+<body>
+    <h1>Prédiction d'objets</h1>
+    <form action="/affichagepredictionsobjets" name="prediction_objets" method="post" enctype="multipart/form-data">
+        <label for="type_entite" name = "label_type_entite">Veuillez choisir un type d'entité (sujet) :</label>
+        <select name="type_entite" id="type_entite">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            <option value="Composé">Composé</option>
+            <option value="Pathologie">Pathologie</option>
+            <option value="Effet">Effets</option>
+            <option value="Indication">Indications</option>
+            <option value="Voie">Voie</option>
+            <option value="Effet secondaire">Effets secondaires </option>
+            <option value="Cible">Cible</option>
+            <option value="Phénotype">Phénotype</option>
+            <option value="Gène">Gène</option>
+            <option value="Activité">Activité</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="entite" name = "label_entite">Veuillez choisir une entité (sujet) :</label>
+        <select name="entite" id="entite">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+        </select>
+        
+        <br>
+        <br>
+        
+        <label for="relations" name = "choix_relation">Veuillez choisir une relation :</label>
+        <select name="relations" id="relations">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            
+        </select>
+
+
+        
+    </form>
+</body>
+</html>

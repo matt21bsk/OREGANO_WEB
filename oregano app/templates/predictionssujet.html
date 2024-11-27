@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>predictions de sujets</title>
+</head>
+<body>
+    <div class="header" style="background-color: rgb(172, 233, 241) ">
+		<h1 style="text-align: center">PROJET OREGANO </h1>
+		<img src="https://gitub.u-bordeaux.fr/erias/oregano/-/raw/master/OREGANO_Applications/oregano_app/data/img/logoFullOregano.png" alt="logoFullOregano">
+	</div>
+
+    <h1 style="text-align: center; background-color: aquamarine;">Prédiction de sujets</h1>
+    <form action="/affichagepredictionsujets" name = "prediction_sujets" method = "post" enctype="multipart/form-data">
+        <label for="relations" name = "choix_relation">Veuillez choisir la relation :</label>
+        <select name="relations" id="relations">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+        </select>    
+
+        <br>
+        <br>
+
+        <label for="type_entite" name = "label_type_entite">Veuillez choisir le type d'entité (objet) :</label>
+        <select name="type_entite" id="type_entite">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            <option value="Composé">Composé</option>
+            <option value="Pathologie">Pathologie</option>
+            <option value="Effet">Effets</option>
+            <option value="Indication">Indications</option>
+            <option value="Voie">Voie</option>
+            <option value="Effet secondaire">Effets secondaires </option>
+            <option value="Cible">Cible</option>
+            <option value="Phénotype">Phénotype</option>
+            <option value="Gène">Gène</option>
+            <option value="Activité">Activité</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="entite" name = "label_entite">Veuillez choisir l'entité (objet) :</label>
+        <select name="entite" id="entite">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            
+        </select>
+
+        <br>
+        <br>
+        <input type="submit" name="lancer_prediction_sujet" id="lancer_prediction_sujet" value="Lancer prédiction">
+
+
+        
+    </form>
+
+    <footer>
+		<p>leodoric.ahouanse@etu.u-bordeaux.fr</p>
+	</footer>
+</body>
+</html>

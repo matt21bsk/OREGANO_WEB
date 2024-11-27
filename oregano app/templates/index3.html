@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> </title>
+	<style>
+        /* Example CSS styles for the table */
+        .predictions-table {
+            font-family: Arial, sans-serif;
+			background-color: rgb(240, 228, 215);
+        }
+		.predictions-table th {
+			text-align: center;
+		}
+		
+	</style>
+</head>
+<body> 
+	<div class="header" style="background-color: rgb(172, 233, 241) ; display: flex; align-items: center;margin-left: 0%;margin-right: 0%;">
+		<img src="https://gitub.u-bordeaux.fr/erias/oregano/-/raw/master/OREGANO_Applications/oregano_app/data/img/logoFullOregano.png" alt="logoFullOregano" style="height: 70px">
+		<h1 style="font-size: larger; margin-left: 10px;">PROJET OREGANO </h1> 
+	
+	</div>
+	<div class="body" style="background-color: darkturquoise; text-align: center;">
+		<h1 style="margin: 0%;">Evaluation de prédictions</h1>
+	</div>
+	
+	<br><br>
+
+	<h1 style="margin : 0%">Tableau de prédictions</h1>	
+	{{ tableau|safe }}
+	<br>
+	<h1 style="margin: 0%">Evaluation des prédictions</h1>
+	<br>
+	<form action="/affichage" method="post">
+		<label for="heads-select">Sélectionner une entité (sujet):</label>
+		<select  id="heads-select" name="heads">
+			<option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+			{% for item in liste_1 %}
+				<option value="{{ item }}">{{ item }}</option>
+			{% endfor %}
+		</select>
+	</form>	
+	<br>
+	<form action="/affichage" method="post">
+		<label for="tails-select">Sélectionner une entité (objet):</label>
+		<select id="tails-select" name="tails">
+			<option value = "None" selected disabled hidden >--Veuillez sélectionner--</option>
+			{% for item in liste_2  %}
+				<option value="{{ item }}">{{ item }}</option>
+			{% endfor %}
+		</select>
+	</form>
+		
+	<br>
+	<br>
+
+	<form action="/affichage/articlesPubmed" method="post" enctype="multipart/form-data">
+		<label for="Recherche pubmed">Lancer recherche bibliographique sur PubMed :</label>
+		<input type="submit" value="Recherche Pubmed">
+	</form>
+	
+	<br>
+	<form action="/affichage/articlesGoogleScholar" method="post" enctype="multipart/form-data">
+		<label for="Recherche GoogleScholar">Lancer recherche bibliographique sur GoogleScholar :</label>
+		<input type="submit" value="Recherche GoogleScholar">
+	</form>
+	
+	<footer>
+		<p style="text-align: center; background-color: rgb(172, 233, 241)">Copyright © 2024 Léodoric AHOUANSE</p>
+	</footer>
+
+	<script>
+        // Ajoute un écouteur d'événements au changement de l'élément <select>
+        document.getElementById("heads-select").addEventListener("change", function() {
+            // Récupère la valeur sélectionnée
+            var selectedValue = this.value;
+
+            // Crée une nouvelle requête AJAX
+            var xhr = new XMLHttpRequest();
+            // Configure la requête en méthode POST vers l'URL '/submit'
+            xhr.open("POST", "/submit", true);
+            // Définit l'en-tête de la requête pour indiquer que les données envoyées sont en JSON
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+            // Définir une fonction de rappel pour gérer la réponse du serveur
+            xhr.onreadystatechange = function() {
+                // Vérifie si la requête est terminée et réussie
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Affiche la réponse du serveur dans le div #responseMessage
+                    document.getElementById("responseMessage").innerText = xhr.responseText;
+                }
+            };
+
+            // Envoie la requête avec la valeur sélectionnée au format JSON
+            xhr.send(JSON.stringify({ heads: selectedValue_sujet }));
+        });
+    </script>
+
+
+</body>
+</html>

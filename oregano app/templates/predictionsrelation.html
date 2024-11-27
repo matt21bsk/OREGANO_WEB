@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>predictions de relations</title>
+</head>
+<body>
+    <h1>Prédiction de relations</h1>
+    <form action="/affichagepredictionsrelations" name="prediction_relations" method="post" enctype="multipart/form-data">
+        <label for="type_entite_sujet" name = "label_type_entite_sujet">Veuillez choisir un type d'entité (sujet) :</label>
+        <select name="type_entite_sujet" id="type_entite_sujet">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            <option value="Composé">Composé</option>
+            <option value="Pathologie">Pathologie</option>
+            <option value="Effet">Effets</option>
+            <option value="Indication">Indications</option>
+            <option value="Voie">Voie</option>
+            <option value="Effet secondaire">Effets secondaires </option>
+            <option value="Cible">Cible</option>
+            <option value="Phénotype">Phénotype</option>
+            <option value="Gène">Gène</option>
+            <option value="Activité">Activité</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="entite_sujet" name = "label_entite">Veuillez choisir une entité (sujet) :</label>
+        <select name="entite_sujet" id="entite_sujet">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+        </select>
+
+        <br>
+        <br>
+        
+        <label for="type_entite_objet" name = "label_type_entite_objet">Veuillez choisir le type d'entité (objet) :</label>
+        <select name="type_entite_objet" id="type_entite_objet">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            <option value="Composé">Composé</option>
+            <option value="Pathologie">Pathologie</option>
+            <option value="Effet">Effets</option>
+            <option value="Indication">Indications</option>
+            <option value="Voie">Voie</option>
+            <option value="Effet secondaire">Effets secondaires </option>
+            <option value="Cible">Cible</option>
+            <option value="Phénotype">Phénotype</option>
+            <option value="Gène">Gène</option>
+            <option value="Activité">Activité</option>
+        </select>
+
+        <br>
+        <br>
+
+        <label for="entite_objet" name = "label_entite_objet">Veuillez choisir l'entité (objet) :</label>
+        <select name="entite_objet" id="entite_objet">
+            <option value="None" selected disabled hidden>--Veuillez sélectionner--</option>
+            
+        </select>
+
+        
+
+
+        
+    </form>
+</body>
+</html>
